@@ -1,0 +1,19 @@
+{
+  "name": "docker-multilevel",
+  "version": "1.0.0",
+  "description": "Interface with LevelDB via multilevel. Use this if you want to connect to a remote levelDB.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "kumavis",
+  "license": "ISC",
+  "dependencies": {
+    "hat": "0.0.3",
+    "level": "^1.1.0",
+    "multilevel": "^6.1.0",
+    "pretty-hrtime": "^1.0.0",
+    "websocket-stream": "^1.5.0"
+  }
+}

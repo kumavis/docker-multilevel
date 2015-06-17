@@ -1,0 +1,6 @@
+# app
+db
+
+# general
+.git
+node_modules
