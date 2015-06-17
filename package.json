@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "Interface with LevelDB via multilevel. Use this if you want to connect to a remote levelDB.",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "docker": "docker build -t multilevel ."
   },
   "author": "kumavis",
   "license": "ISC",
