@@ -4,6 +4,7 @@ const port = 9000
 
 var db = level('./db')
 
-dbServer(port, db, function(){
+dbServer(port, db, function(err){
+  if (err) console.error(err)
   console.log('DB Server listening on '+port)
 })

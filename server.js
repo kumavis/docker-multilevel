@@ -9,7 +9,8 @@ module.exports = remoteDbServer
 
 function remoteDbServer(port, db, cb) {
 
-  net.createServer(onConnect).listen(port, cb)
+  var server = net.createServer(onConnect)
+  server.listen(port, cb)
 
   function onConnect(duplex) {
 
