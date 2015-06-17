@@ -1,7 +1,7 @@
 const level = require('level')
 const multilevel = require('multilevel')
 const assert = require('assert')
-const websocket = require('websocket-stream')
+const net = require('net')
 const levelup = require('levelup')
 const memdown = require('memdown')
 const dbServer = require('../server.js')
@@ -14,10 +14,10 @@ db.open(function(){
 
   dbServer(port, memdb, function(){
     
-    var ws = websocket('ws://localhost:'+port)
+    var transport = net.connect(port);
 
     var db = multilevel.client()
-    ws.pipe(db.createRpcStream()).pipe(ws)
+    transport.pipe(db.createRpcStream()).pipe(transport)
 
     db.put('test', 'abc123', function(){
       db.get('test', function(err, value){

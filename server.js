@@ -1,17 +1,15 @@
-const http = require('http')
-const hat = require('hat')
-const websocket = require('websocket-stream')
-const prettyHrtime = require('pretty-hrtime')
+const net = require('net')
 const multilevel = require('multilevel')
+const hat = require('hat')
+const eos = require('end-of-stream')
+const prettyHrtime = require('pretty-hrtime')
 
 module.exports = remoteDbServer
 
 
 function remoteDbServer(port, db, cb) {
 
-  var server = http.createServer()
-  websocket.createServer({ server: server }, onConnect)
-  server.listen(port, cb)
+  net.createServer(onConnect).listen(port, cb)
 
   function onConnect(duplex) {
 
@@ -22,13 +20,10 @@ function remoteDbServer(port, db, cb) {
     var dbStream = multilevel.server(db)
     duplex.pipe(dbStream).pipe(duplex)
 
-    duplex.on('end', function(){
+    eos(duplex, function(err){
       var duration = process.hrtime(start)
+      if (err) console.error(id, err)      
       console.log(id, '- disconnected', prettyHrtime(duration))
-    })
-
-    duplex.on('error', function(err){
-      console.error(err)
     })
 
   }

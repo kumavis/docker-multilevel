@@ -6,17 +6,16 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "test": "node test/index.js",
-    "docker": "docker build -t multilevel ."
+    "test": "node test/index.js"
   },
   "author": "kumavis",
   "license": "ISC",
   "dependencies": {
+    "end-of-stream": "^1.1.0",
     "hat": "0.0.3",
     "level": "^1.1.0",
     "multilevel": "^6.1.0",
-    "pretty-hrtime": "^1.0.0",
-    "websocket-stream": "^1.5.0"
+    "pretty-hrtime": "^1.0.0"
   },
   "devDependencies": {
     "levelup": "^1.2.1",
