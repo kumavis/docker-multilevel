@@ -15,6 +15,7 @@ db.open(function(){
   dbServer(port, memdb, function(){
     
     var ws = websocket('ws://localhost:'+port)
+
     var db = multilevel.client()
     ws.pipe(db.createRpcStream()).pipe(ws)
 

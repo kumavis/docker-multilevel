@@ -19,7 +19,8 @@ function remoteDbServer(port, db, cb) {
     var start = process.hrtime()
     console.log(id, '- connected')
     
-    duplex.pipe(multilevel.server(db)).pipe(duplex)
+    var dbStream = multilevel.server(db)
+    duplex.pipe(dbStream).pipe(duplex)
 
     duplex.on('end', function(){
       var duration = process.hrtime(start)
