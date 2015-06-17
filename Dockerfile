@@ -15,5 +15,5 @@ RUN npm test
 # start server
 CMD npm start
 
-# replace this with your application's default port
-EXPOSE 7001
+# expose server
+EXPOSE 9000
