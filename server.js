@@ -27,6 +27,10 @@ function remoteDbServer(port, db, cb) {
       console.log(id, '- disconnected', prettyHrtime(duration))
     })
 
+    duplex.on('error', function(err){
+      console.error(err)
+    })
+
   }
 
 }
