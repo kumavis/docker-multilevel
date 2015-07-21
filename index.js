@@ -1,6 +1,6 @@
 const level = require('level')
 const dbServer = require('./server.js')
-const port = 9000
+const port = process.env.PORT || 9000
 
 var db = level('./db')
 
