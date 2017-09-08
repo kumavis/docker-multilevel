@@ -14,7 +14,7 @@
     "end-of-stream": "^1.1.0",
     "hat": "0.0.3",
     "level": "^1.1.0",
-    "multilevel": "^6.1.0",
+    "multilevel": "^7.3.0",
     "pretty-hrtime": "^1.0.0"
   },
   "devDependencies": {
